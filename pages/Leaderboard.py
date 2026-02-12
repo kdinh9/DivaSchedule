@@ -68,5 +68,6 @@ chart = chart.add_selection(hover).encode(
 
 st.altair_chart(chart, use_container_width=True)
 
-## Add Image4fun
-st.image("test_photo.jpg", caption="😘😘😘")
+## Add Image4fun HAHA
+#st.image("test_photo.jpg", caption="😘😘😘")
+
