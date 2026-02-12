@@ -11,14 +11,16 @@ st.set_page_config(
 # Import Data
 data = pd.read_csv("all_Records.csv")
 
-
-
 # Format Data for Graphing
 data['cum_WLT_diff'] = data['Cum_Win'].astype(str) + '-' + data['Cum_Loss'].astype(str) + '-' + data['Cum_Tie'].astype(str)
+#data["Date"] = pd.to_datetime(data["Date"], format="%m-%d-%Y")
 data["Date"] = pd.to_datetime(data["Date"], format="%m-%d-%Y")
+data["Date_Label"] = data["Date"].dt.strftime('%m-%d') 
 data = data.sort_values(["Team", "Date"])
 
 # Filters
+  ## filter for weeks that no games are played
+data = data.drop(data[(data.Win == 0) & (data.Loss == 0) & (data.Tie == 0)].index)
 year = st.selectbox("Year",sorted(data["Date"].dt.year.unique(),reverse=True))
 available_seasons = (data[data["Date"].dt.year == year]["Season"].unique())
 season = st.selectbox("Season",sorted(available_seasons))
@@ -35,7 +37,7 @@ chart = (
     alt.Chart(filtered)
     .mark_line(point=True)
     .encode(
-        x=alt.X("Date:T", title="Date"),
+        x=alt.X("Date_Label:O", title="Date"),
         y=alt.Y(
             "Standing:Q",
             scale=alt.Scale(reverse=True,domainMin=1),
