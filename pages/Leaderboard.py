@@ -65,4 +65,8 @@ chart = chart.add_selection(hover).encode(
     strokeWidth=alt.condition(hover, alt.value(4), alt.value(1))
 )
 ## Plot
+
 st.altair_chart(chart, use_container_width=True)
+
+## Add Image4fun
+st.image("test_photo.jpg", caption="😘😘😘")
