@@ -41,11 +41,12 @@ selected_players = st.multiselect(
     options=players_options,
     max_selections=20,
     accept_new_options=True,
-    default=["Junior Riengxay","Utmy Tran","Megan Silavongsa","Kevin Dinh","TonyTam Dinh","Pete Visounnaraj","Christopher Nguyen","Jay Bui", "Kristine Vital","Tommy Tran","Mark Le","TK Kittisubcharoen","Reagan Phonsa","Frederick Alejandro","Jet Li Thach","Kayu Southichark"]
+    default=["Mike Clancy","Marley Anderson","Junior Riengxay","Utmy Tran","Megan Silavongsa","Kevin Dinh","TonyTam Dinh","Pete Visounnaraj","Christopher Nguyen","Jay Bui", "Kristine Vital","Tommy Tran","Mark Le","TK Kittisubcharoen","Reagan Phonsa","Frederick Alejandro","Jet Li Thach","Kayu Southichark"]
 )
 
 filtered_search = friendFinder(friends2Teams(players_df,selected_players),data,selected_date)
 st.write(filtered_search)
 # # st.write(selected_players)
+
 
 
