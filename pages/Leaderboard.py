@@ -8,16 +8,20 @@ st.set_page_config(
     page_title="Leaderboard",
     page_icon='🏆'
 )
+
 # Import Data
-data = pd.read_csv("all_Records.csv")
+@st.cache_data
+def load(file):
+    data = pd.read_csv(file)
+    # Format Data for Graphing
+    data['cum_WLT_diff'] = data['Cum_Win'].astype(str) + '-' + data['Cum_Loss'].astype(str) + '-' + data['Cum_Tie'].astype(str)
+    #data["Date"] = pd.to_datetime(data["Date"], format="%m-%d-%Y")
+    data["Date"] = pd.to_datetime(data["Date"], format="%m-%d-%Y")
+    data["Date_Label"] = data["Date"].dt.strftime('%m-%d') 
+    data = data.sort_values(["Team", "Date"])
+    return data
 
-# Format Data for Graphing
-data['cum_WLT_diff'] = data['Cum_Win'].astype(str) + '-' + data['Cum_Loss'].astype(str) + '-' + data['Cum_Tie'].astype(str)
-#data["Date"] = pd.to_datetime(data["Date"], format="%m-%d-%Y")
-data["Date"] = pd.to_datetime(data["Date"], format="%m-%d-%Y")
-data["Date_Label"] = data["Date"].dt.strftime('%m-%d') 
-data = data.sort_values(["Team", "Date"])
-
+data = load("all_Records.csv")
 # Filters
   ## filter for weeks that no games are played
 data = data.drop(data[(data.Win == 0) & (data.Loss == 0) & (data.Tie == 0)].index)
@@ -68,6 +72,4 @@ chart = chart.add_selection(hover).encode(
 
 st.altair_chart(chart, use_container_width=True)
 
-## Add Image4fun HAHA
-#st.image("test_photo.jpg", caption="😘😘😘")
 
