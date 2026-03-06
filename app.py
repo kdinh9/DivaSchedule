@@ -13,19 +13,18 @@ st.set_page_config(
 
 
 # Import Data
-    # Schedule Data
-data = pd.read_csv(SCHEDULE_FILE)
-data['Time'] = pd.to_datetime(data['Time'], format= '%I:%M %p').dt.time
-data["Date"] = pd.to_datetime(data["Date"], format="%a, %b %d %Y").dt.strftime("%m-%d-%Y")
-    # Player-Team Data
-column_names = ['Player','Division','Team Number']
-players_df = pd.read_csv("26springteams.csv", names = column_names, skiprows=1,dtype=str)
-# parts = players_df['Player'].str.split(' ', n=1, expand=True)
-# players_df['Player'] = parts[0] + ' ' + parts[1].str[:1]
+@st.cache_data
+def load(SCHEDULE_FILE):
+    data = pd.read_csv(SCHEDULE_FILE)
+    data['Time'] = pd.to_datetime(data['Time'], format= '%I:%M %p').dt.time
+    data["Date"] = pd.to_datetime(data["Date"], format="%a, %b %d %Y").dt.strftime("%m-%d-%Y")
+        # Player-Team Data
+    column_names = ['Player','Division','Team Number']
+    players_df = pd.read_csv("26springteams.csv", names = column_names, skiprows=1,dtype=str)
+    return players_df, data
 
-
+players_df, data = load(SCHEDULE_FILE)
 ### Drop Downs
-    # Default Value 
     # Date Dropdowns
 date_options = data['Date'].unique().tolist()
 selected_date = st.selectbox(
@@ -46,7 +45,7 @@ selected_players = st.multiselect(
 
 filtered_search = friendFinder(friends2Teams(players_df,selected_players),data,selected_date)
 st.write(filtered_search)
-# # st.write(selected_players)
+
 
 
 
