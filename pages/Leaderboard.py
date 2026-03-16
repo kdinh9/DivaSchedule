@@ -10,8 +10,7 @@ st.set_page_config(
 )
 
 # Import Data
-st.rerun()
-# @st.cache_data
+@st.cache_data
 def load(file):
     data = pd.read_csv(file)
     # Format Data for Graphing
@@ -23,6 +22,7 @@ def load(file):
     return data
 
 data = load("all_Records.csv")
+
 # Filters
   ## filter for weeks that no games are played
 data = data.drop(data[(data.Win == 0) & (data.Loss == 0) & (data.Tie == 0)].index)
