@@ -30,7 +30,7 @@ date_options = data['Date'].unique().tolist()
 selected_date = st.selectbox(
     'Select Date to Filter',
     options=date_options,
-    index=5
+    index=6
 )
     # Player Dropdown
 players_options = players_df['Player'].unique().tolist()
