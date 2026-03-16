@@ -10,6 +10,7 @@ st.set_page_config(
 )
 
 # Import Data
+st.rerun()
 # @st.cache_data
 def load(file):
     data = pd.read_csv(file)
