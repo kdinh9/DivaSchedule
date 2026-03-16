@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # Import Data
-@st.cache_data
+# @st.cache_data
 def load(file):
     data = pd.read_csv(file)
     # Format Data for Graphing
