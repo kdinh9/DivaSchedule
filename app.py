@@ -6,7 +6,7 @@ from filter_friend_finder import friendFinder, friends2Teams
 SCHEDULE_FILE = './data/2026_fall/schedule.csv'
 TEAM_FILE = './data/2026_fall/team_players.csv'
 
-st.title("Locate Your Friends :heart: \n RIP my boy TDO :skull::leg::boom:")
+st.title("Locate Your Friends :heart: \n I miss u jr, tommy, vinh, & kristine")
 st.set_page_config(
     page_title="Locate Your Friends",
     page_icon='👬'
@@ -43,7 +43,7 @@ selected_players = st.multiselect(
     options=players_options,
     max_selections=25,
     accept_new_options=True,
-    default=["Kevin Dinh","Megan Silavongsa","Ashton Baldwin"]
+    default=["Kevin Dinh","Megan Silavongsa","TonyTam Dinh", "Mark Le","Jet Li Thach","Kevin Vu","England Nguyen","Reagan Phonsa","Kayu Southichark"]
 )
 
 filtered_search = friendFinder(friends2Teams(players_df,selected_players),schedule_df,selected_date)
