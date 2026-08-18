@@ -6,7 +6,7 @@ from filter_friend_finder import friendFinder, friends2Teams
 SCHEDULE_FILE = './data/2026_fall/schedule.csv'
 TEAM_FILE = './data/2026_fall/team_players.csv'
 
-st.title("Locate Your Friends :heart: \n I miss u jr, tommy, vinh, & kristine")
+st.title("Locate Your Friends :heart: \n I miss u jr, emry, tommy, vinh, & kristine")
 st.set_page_config(
     page_title="Locate Your Friends",
     page_icon='👬'
