@@ -43,7 +43,7 @@ selected_players = st.multiselect(
     options=players_options,
     max_selections=25,
     accept_new_options=True,
-    default=["Kevin Dinh","Megan Silavongsa","TonyTam Dinh", "Mark Le","Jet Li Thach","Kevin Vu","England Nguyen","Reagan Phonsa","Kayu Southichark"]
+    default=["Kevin Dinh","Megan Silavongsa","TonyTam Dinh", "Mark Le","Jet Li Thach","Kevin Vu","England Nguyen","Reagan Phonsa","Kayu Southichark","Travis Visounnaraj","Pete Visounnaraj","Olivia Cunningham"]
 )
 
 filtered_search = friendFinder(friends2Teams(players_df,selected_players),schedule_df,selected_date)
