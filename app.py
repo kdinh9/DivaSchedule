@@ -33,7 +33,7 @@ date_options = schedule_df['DATE'].unique().tolist()
 selected_date = st.selectbox(
     'Select Date to Filter',
     options=date_options,
-    index=0
+    index=1
 )
     # Player Dropdown
 players_options = players_df['PLAYER'].unique().tolist()
@@ -43,7 +43,7 @@ selected_players = st.multiselect(
     options=players_options,
     max_selections=25,
     accept_new_options=True,
-    default=["Kevin Dinh","Megan Silavongsa","TonyTam Dinh", "Mark Le","Jet Li Thach","Kevin Vu","England Nguyen","Reagan Phonsa","Kayu Southichark","Travis Visounnaraj","Pete Visounnaraj","Olivia Cunningham"]
+    default=["Mike Clancy","Marley Anderson","Kevin Dinh","Megan Silavongsa","TonyTam Dinh", "Mark Le","Jet Li Thach","Kevin Vu","England Nguyen","Reagan Phonsa","Kayu Southichark","Travis Visounnaraj","Pete Visounnaraj","Olivia Cunningham"]
 )
 
 filtered_search = friendFinder(friends2Teams(players_df,selected_players),schedule_df,selected_date)
