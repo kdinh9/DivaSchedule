@@ -31,7 +31,7 @@ players_df, schedule_df = load(SCHEDULE_FILE,TEAM_FILE)
     # Date Dropdowns
 date_options = schedule_df['DATE'].unique().tolist()
 selected_date = st.selectbox(
-    'Select Date to Filter',
+    'Date',
     options=date_options,
     index=1
 )
@@ -39,7 +39,7 @@ selected_date = st.selectbox(
 players_options = players_df['PLAYER'].unique().tolist()
 selected_players = players_options
 selected_players = st.multiselect(
-    "Which Players are you looking for",
+    "Players",
     options=players_options,
     max_selections=25,
     accept_new_options=True,
