@@ -33,7 +33,7 @@ date_options = schedule_df['DATE'].unique().tolist()
 selected_date = st.selectbox(
     'Date',
     options=date_options,
-    index=3
+    index=4
 )
     # Player Dropdown
 players_options = players_df['PLAYER'].unique().tolist()
